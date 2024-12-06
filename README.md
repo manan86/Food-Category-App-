@@ -24,6 +24,11 @@
 - Provides robust error handling for network interactions.
 
 ---
+## 📹 Demo
+
+https://github.com/user-attachments/assets/c508e071-f771-43c4-8974-93c6c7adc234
+
+---
 
 ## Tech Stack
 
@@ -54,10 +59,6 @@
    ```bash
    git clone https://github.com/your-username/food-category-app.git
 
-
-📹 Demo
-
-https://github.com/user-attachments/assets/c508e071-f771-43c4-8974-93c6c7adc234
 
 
 
