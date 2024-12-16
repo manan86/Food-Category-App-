@@ -5,8 +5,14 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class FoodRepository @Inject constructor(private val apiService: APIService) {
+class FoodRepository @Inject constructor(private val apiService: APIService,
+    private val dao: FoodDao
+    ) {
     suspend fun fetchAllCategory() : Response<FoodListResponse>{
         return apiService.getAllCategory()
+    }
+
+    suspend fun saveFoodRoom(foodEntity: FoodEntity){
+        return dao.storeFood(foodEntity)
     }
 }

@@ -2,6 +2,7 @@ package com.codegalaxy.mealapidaggerwitheverything12_03.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.codegalaxy.mealapidaggerwitheverything12_03.model.FoodEntity
 import com.codegalaxy.mealapidaggerwitheverything12_03.model.FoodRepository
 import com.codegalaxy.mealapidaggerwitheverything12_03.model.FoodResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,7 +24,18 @@ class FoodViewModel @Inject constructor(private val repository: FoodRepository) 
             try {
                 val response = repository.fetchAllCategory()
                 if (response.isSuccessful){
-                    _category.emit(response.body()?.category ?: emptyList())
+                    val categories = response.body()?.category ?: emptyList()
+                    _category.emit(categories)
+
+                    categories.forEach {
+                        category ->
+                        val foodEntity = FoodEntity(
+                            category = category.category,
+                            image = category.image,
+                            desc = category.desc
+                        )
+                        repository.saveFoodRoom(foodEntity)
+                    }
                 }
                 else{
                     println("Not able to find data ${response.message()}")
