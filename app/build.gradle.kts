@@ -68,10 +68,28 @@ dependencies {
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
 
-    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
-
     implementation("com.google.dagger:hilt-android:2.51")
     kapt("com.google.dagger:hilt-android-compiler:2.51")
     kapt("androidx.hilt:hilt-compiler:1.2.0")
+
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+    testImplementation ("io.mockk:mockk:1.12.3")
+    testImplementation ("androidx.arch.core:core-testing:2.1.0")
+
+    // JUnit for unit testing
+    testImplementation ("junit:junit:4.13.2")
+
+    // Mockito for mocking
+    testImplementation ("org.mockito:mockito-core:4.0.0")
+    testImplementation ("org.mockito.kotlin:mockito-kotlin:4.0.0")
+
+    // Coroutines test for coroutine-related testing
+    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+
+    // AndroidX Core Testing for LiveData and ViewModel testing
+    testImplementation ("androidx.arch.core:core-testing:2.1.0")
+
+// Turbine for StateFlow testing
+    testImplementation ("app.cash.turbine:turbine:0.7.0")
 
 }

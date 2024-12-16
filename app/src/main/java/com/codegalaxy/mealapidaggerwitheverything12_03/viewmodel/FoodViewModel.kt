@@ -1,7 +1,5 @@
 package com.codegalaxy.mealapidaggerwitheverything12_03.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.codegalaxy.mealapidaggerwitheverything12_03.model.FoodRepository
@@ -25,7 +23,7 @@ class FoodViewModel @Inject constructor(private val repository: FoodRepository) 
             try {
                 val response = repository.fetchAllCategory()
                 if (response.isSuccessful){
-                    _category.value = response.body()?.category ?: emptyList()
+                    _category.emit(response.body()?.category ?: emptyList())
                 }
                 else{
                     println("Not able to find data ${response.message()}")
